@@ -26,19 +26,20 @@ function OddsForm(){
         e.preventDefault();
 
         if(realChance !== 0 && userChance !== 0 && balance !== 0){
-            let winProbability = userChance;
-            let loseProbability = 1 - winProbability;
-            let possibleProfit = ((100/realChance) - 1).toFixed(2);
-            let kellyResult = (winProbability * possibleProfit - loseProbability) / possibleProfit;
-            
-            let overRated = winProbability - (realChance/100).toFixed(2);
+            let ln = Math.log(realChance);
+            let increasedLn = ln * 10;
+            let realChancePercent = userChance * 100;
 
-            if(kellyResult <= 0 || (overRated > 0.2)) {
+            let stakePercent = realChancePercent - increasedLn;
+            let stakeDecimal = stakePercent / 100;
+
+            let formula = (stakeDecimal * balance).toFixed(2);
+
+            if(formula <= 0) {
                 setMessage("You should not bet on this match !");
                 setMessageStyle("text-center w-3/5 md:w-1/5 bg-red-200");
             }else{
-                let stake = (balance*kellyResult).toFixed(2);
-                setMessage("You should place a bet of " + stake + " units");
+                setMessage("You should place a bet of " + formula + " units");
                 setMessageStyle("text-center w-3/5 md:w-1/5 bg-green-200");
             }
         }
