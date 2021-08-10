@@ -1,0 +1,7 @@
+@import url("https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.typography{
+    font-family :  'Permanent Marker', cursive;
+}
