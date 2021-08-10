@@ -4,7 +4,7 @@ function BackgroundImg(){
     return(
         <img className="w-full
                          md:w-full 
-                         h-auto 
+                         h-2/5 
                          md:h-3/5 
                          flex 
                          items-center 
